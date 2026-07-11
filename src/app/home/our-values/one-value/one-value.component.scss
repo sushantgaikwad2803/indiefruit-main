@@ -1,0 +1,39 @@
+:host {
+    border-radius: 12px;
+    padding: 10px;
+    width: 25%;
+    &:hover {
+        cursor: pointer;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+    p {
+        font-family: "Baloo Tamma 2", system-ui;
+    }
+    .title {
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .content {
+        color: #FFFFFF;
+    }
+
+    .read-more {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 9;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: #A52A2A;
+        font-weight: 600;
+    }
+}

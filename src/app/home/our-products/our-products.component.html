@@ -1,0 +1,54 @@
+<!-- <h2 id="our-products" class="section-title">OUR PRODUCTS</h2>
+<span class="sub-title">Indiefruit Farms deliver superior quality fruits & vegetables to our customers around the world.</span>
+<div class="products">
+    <div *ngFor="let product of getProducts();" class="item all" [ngClass]="product.category">
+        <img [src]="product.filePath" alt=""/>
+        <button>INFO</button>
+    </div>
+</div>  -->
+
+<!-- Modern Section Header -->
+<div class="section-header">
+    <div class="line"></div>
+    <div class="title-wrapper">
+        <span class="subtitle">Our Fresh Collection</span>
+        <h2 id="our-products" class="section-title">OUR PRODUCTS</h2>
+    </div>
+    <div class="line"></div>
+</div>
+
+<p class="description">Indiefruit Farms deliver superior quality fruits & vegetables to our customers around the world.</p>
+
+<!-- Products Grid -->
+<div class="products-grid">
+    <div *ngFor="let product of getProducts()" 
+         class="product-card" 
+         [ngClass]="product.category"
+         (click)="onProductClick(product)">
+        
+        <!-- Image Container -->
+        <div class="image-container">
+            <img [src]="product.filePath" [alt]="product.productName"/>
+            
+            <!-- Category Badge -->
+            <span class="category-badge" [style.background]="getCategoryColor(product.category)">
+                {{ getCategoryIcon(product.category) }} {{ product.category }}
+            </span>
+            
+            <!-- Hover Overlay -->
+            <!-- <div class="overlay"> 
+                <button class="info-btn" (click)="onInfoClick(product, $event)">
+                    <i class="fa fa-eye"></i> View Details
+                </button>
+            </div> -->
+        </div>
+        
+        <!-- Product Info -->
+        <div class="product-info">
+            <h3 class="product-name">{{ product.productName }}</h3>
+            <span class="product-category" [style.color]="getCategoryColor(product.category)">
+                {{ product.category | titlecase }}
+            </span>
+        </div>
+    </div>
+</div>

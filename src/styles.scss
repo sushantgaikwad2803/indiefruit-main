@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    .section-title {
+        font-weight: 600;
+        border-bottom: 4px double #24b662;
+        border-radius: 25px;
+        font-size: 30px;
+        margin: 0 auto;
+        padding: 10px 0;
+        width: 350px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-family: "Baloo Tamma 2", system-ui;
+    }
+}
+
+.btn {
+    background: #79A03F;
+    height: 32px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: "Mulish", sans-serif;
+    border-color: #79A03F;
+    color: white;
+}

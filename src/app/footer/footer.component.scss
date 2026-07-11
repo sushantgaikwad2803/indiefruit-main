@@ -1,0 +1,623 @@
+// :host {
+//     footer {
+//         display: flex;
+//         flex-direction: column;
+//         background-color: #104051;
+//         padding-left: 40px;
+//         padding-right: 40px;
+
+//         .top {
+//             display: flex;
+//             flex-direction: row;
+//             padding-bottom: 64px;
+//             padding-top: 64px;
+
+//             .title {
+//                 margin: 0;
+//                 color: #e1e1e1;
+//                 font-family: "Baloo Tamma 2", system-ui;
+//                 font-size: 20px;
+//                 font-weight: 900;
+//             }
+
+//             .social-media {
+//                 display: flex;
+//                 flex-direction: column;
+//                 flex: 0.3;
+
+//                 span {
+//                     color: #e1e1e1;
+//                     font-size: 25px;
+//                     font-weight: 900;
+//                     font-family: "Baloo Tamma 2", system-ui;
+//                 }
+
+//                 img {
+//                     width: 18vw;
+//                 }
+
+//                 .icons {
+//                     display: flex;
+//                     gap: 10px;
+
+//                     i {
+//                         background-color: #ffffff;
+//                         color: #104051;
+//                         font-size: 21px;
+//                         border-radius: 14px;
+//                         padding: 12px;
+//                         cursor: pointer;
+//                     }
+//                 }
+//             }
+
+//             .products,
+//             .company {
+//                 flex: 0.35;
+
+//                 ul {
+//                     list-style: none;
+//                     padding: 0;
+
+//                     li {
+//                         color: #949494;
+//                         font-family: "Mulish", sans-serif;
+//                         padding: 4px 0;
+//                         cursor: pointer;
+//                     }
+//                 }
+
+//                 div {
+//                     display: flex;
+//                     gap: 70px;
+//                 }
+//             }
+//         }
+
+//         .bottom {
+//             display: flex;
+//             justify-content: space-between;
+//             padding-top: 28px;
+//             padding-bottom: 28px;
+//             color: #7F7F7F;
+//             text-align: center;
+//             font-family: "Mulish", sans-serif;
+//             font-size: 12px;
+//             .rights {
+//                 font-weight: 700;
+//             }
+//             .go-to-top {
+//                 font-size: 1.5em;
+//                 cursor: pointer;
+//                 text-decoration: none;
+//                 background-color: transparent;
+//                 color: #666;
+//                 font-size: 25px;
+//             }
+
+//             .email-whatsapp-contact {
+//                 display: flex;
+//                 gap: 20px;
+//                 font-weight: 400;
+//                 font-family: "Mulish", sans-serif;
+//                 a {
+//                     color: #666;
+//                     text-decoration: none;
+//                     background-color: transparent;
+//                     font-size: 12px;
+//                     &:hover {
+//                         color: #444;
+//                         text-decoration: none;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+
+//     abbr {
+//         cursor: pointer;
+//     }
+// }
+
+:host {
+    footer {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, #104051 0%, #1a5a6e 100%);
+        padding: 0 60px;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+
+        // Decorative top border
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f4a460, #ff6b6b, #f4a460);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .top {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 60px 0 50px;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+
+            .title {
+                margin: 0 0 20px 0;
+                color: #ffffff;
+                font-family: "Baloo Tamma 2", system-ui;
+                font-size: 22px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                position: relative;
+                display: inline-block;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 30px;
+                    height: 3px;
+                    background: #f4a460;
+                    border-radius: 2px;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover::after {
+                    width: 50px;
+                }
+            }
+
+            .products {
+                flex: 0.45;
+                
+                div {
+                    display: flex;
+                    gap: 60px;
+                    
+                    ul {
+                        list-style: none;
+                        padding: 0;
+                        margin: 0;
+
+                        li {
+                            color: rgba(255, 255, 255, 0.7);
+                            font-family: "Mulish", sans-serif;
+                            padding: 6px 0;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            font-size: 15px;
+                            position: relative;
+
+                            a {
+                                color: inherit;
+                                text-decoration: none;
+                                transition: all 0.3s ease;
+                                display: inline-block;
+                            }
+
+                            &::before {
+                                content: '›';
+                                opacity: 0;
+                                margin-right: 0;
+                                transition: all 0.3s ease;
+                                color: #f4a460;
+                            }
+
+                            &:hover {
+                                color: #ffffff;
+                                transform: translateX(6px);
+
+                                &::before {
+                                    opacity: 1;
+                                    margin-right: 8px;
+                                }
+
+                                a {
+                                    color: #ffffff;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .company {
+                flex: 0.25;
+                
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        color: rgba(255, 255, 255, 0.7);
+                        font-family: "Mulish", sans-serif;
+                        padding: 6px 0;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        font-size: 15px;
+                        position: relative;
+
+                        a {
+                            color: inherit;
+                            text-decoration: none;
+                            transition: all 0.3s ease;
+                            display: inline-block;
+                        }
+
+                        &::before {
+                            content: '›';
+                            opacity: 0;
+                            margin-right: 0;
+                            transition: all 0.3s ease;
+                            color: #f4a460;
+                        }
+
+                        &:hover {
+                            color: #ffffff;
+                            transform: translateX(6px);
+
+                            &::before {
+                                opacity: 1;
+                                margin-right: 8px;
+                            }
+
+                            a {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .social-media {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                flex: 0.3;
+
+                img {
+                    width: 180px;
+                    height: auto;
+                    margin-bottom: 15px;
+                    filter: brightness(0) invert(1);
+                    opacity: 0.9;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        opacity: 1;
+                        transform: scale(1.02);
+                    }
+                }
+
+                span {
+                    color: rgba(255, 255, 255, 0.8);
+                    font-size: 18px;
+                    font-weight: 600;
+                    font-family: "Baloo Tamma 2", system-ui;
+                    margin-bottom: 15px;
+                    letter-spacing: 0.5px;
+                }
+
+                .icons {
+                    display: flex;
+                    gap: 12px;
+                    flex-wrap: wrap;
+
+                    a {
+                        text-decoration: none;
+                        display: inline-block;
+                        transition: all 0.3s ease;
+                    }
+
+                    i {
+                        background-color: rgba(255, 255, 255, 0.1);
+                        color: #ffffff;
+                        font-size: 20px;
+                        border-radius: 50%;
+                        padding: 12px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        height: 20px;
+                        backdrop-filter: blur(5px);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+
+                        &:hover {
+                            background-color: #ffffff;
+                            color: #104051;
+                            transform: translateY(-4px);
+                            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                            border-color: transparent;
+                        }
+
+                        // Specific hover colors
+                        &.fa-instagram:hover {
+                            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+                            color: white;
+                        }
+
+                        &.fa-facebook:hover {
+                            background: #1877f2;
+                            color: white;
+                        }
+
+                        &.fa-twitter:hover {
+                            background: #000000;
+                            color: white;
+                        }
+
+                        &.fa-linkedin:hover {
+                            background: #0a66c2;
+                            color: white;
+                        }
+
+                        &.fa-youtube:hover {
+                            background: #ff0000;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            font-family: "Mulish", sans-serif;
+            font-size: 13px;
+            position: relative;
+            z-index: 1;
+
+            .rights {
+                font-weight: 600;
+                letter-spacing: 0.3px;
+                
+                abbr {
+                    cursor: pointer;
+                    transition: color 0.3s ease;
+                    text-decoration: none;
+                    
+                    &:hover {
+                        color: #ffffff;
+                    }
+                }
+            }
+
+            .go-to-top {
+                font-size: 28px;
+                cursor: pointer;
+                text-decoration: none;
+                background: rgba(255, 255, 255, 0.05);
+                color: rgba(255, 255, 255, 0.5);
+                width: 45px;
+                height: 45px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                font-size: 22px;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.1);
+                    color: #ffffff;
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            .email-whatsapp-contact {
+                display: flex;
+                gap: 30px;
+                font-weight: 400;
+                font-family: "Mulish", sans-serif;
+
+                a {
+                    color: rgba(255, 255, 255, 0.5);
+                    text-decoration: none;
+                    background-color: transparent;
+                    font-size: 13px;
+                    transition: all 0.3s ease;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    i {
+                        font-size: 18px;
+                        transition: all 0.3s ease;
+                    }
+
+                    &:hover {
+                        color: #ffffff;
+                        
+                        i {
+                            transform: scale(1.1);
+                        }
+                    }
+
+                    // Specific hover colors for icons
+                    &:hover .fa-envelope {
+                        color: #ea4335;
+                    }
+
+                    &:hover .fa-whatsapp {
+                        color: #25d366;
+                    }
+                }
+            }
+        }
+    }
+
+    // Responsive Design
+    @media (max-width: 1200px) {
+        footer {
+            padding: 0 40px;
+
+            .top {
+                .products div {
+                    gap: 40px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        footer {
+            padding: 0 30px;
+
+            .top {
+                flex-wrap: wrap;
+                gap: 30px;
+
+                .products {
+                    flex: 1 1 100%;
+                    order: 1;
+                }
+
+                .company {
+                    flex: 1 1 45%;
+                    order: 2;
+                }
+
+                .social-media {
+                    flex: 1 1 45%;
+                    order: 3;
+                    align-items: flex-start;
+
+                    img {
+                        width: 150px;
+                    }
+                }
+            }
+
+            .bottom {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+
+                .email-whatsapp-contact {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        footer {
+            padding: 0 20px;
+
+            .top {
+                padding: 40px 0 30px;
+
+                .products {
+                    div {
+                        flex-direction: column;
+                        gap: 15px;
+                    }
+                }
+
+                .company {
+                    flex: 1 1 100%;
+                }
+
+                .social-media {
+                    flex: 1 1 100%;
+
+                    img {
+                        width: 130px;
+                    }
+                }
+
+                .title {
+                    font-size: 20px;
+                }
+            }
+
+            .bottom {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px 0;
+
+                .go-to-top {
+                    order: -1;
+                }
+
+                .email-whatsapp-contact {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 12px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        footer {
+            padding: 0 15px;
+
+            .top {
+                padding: 30px 0 20px;
+
+                .products div ul li,
+                .company ul li {
+                    font-size: 14px;
+                    padding: 4px 0;
+                }
+
+                .social-media {
+                    .icons i {
+                        padding: 10px;
+                        font-size: 16px;
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    span {
+                        font-size: 16px;
+                    }
+
+                    img {
+                        width: 110px;
+                    }
+                }
+            }
+
+            .bottom {
+                .rights {
+                    font-size: 11px;
+                }
+
+                .email-whatsapp-contact a {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

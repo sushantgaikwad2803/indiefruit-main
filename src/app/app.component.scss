@@ -1,0 +1,19 @@
+    // :host {
+    //     display: flex;
+    //     flex-direction: column;
+    // }
+
+    :host {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;  // Add this - ensures full viewport height
+        width: 100%;        // Add this - ensures full width
+        overflow-x: hidden; // Add this - prevents horizontal scroll
+        background: #ffffff;
+    }
+    
+    router-outlet {
+        display: block;
+        flex: 1;           // This makes the outlet take remaining space
+        width: 100%;
+    }

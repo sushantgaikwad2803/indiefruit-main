@@ -1,0 +1,34 @@
+<!-- <div id="top" class="header">
+    <img src="assets/horizontal_logo.png"/>
+    <ul class="menus">
+        <li *ngFor="let item of menus; index as i"
+        [ngClass]="{'active-menu': selectedMenuIndex===i}"
+        class="menu-item"
+        (click)="onMenuClick(i)">
+            <a>{{item.text}}</a>
+        </li>
+    </ul>
+</div> -->
+
+<div id="top" class="header" [class.scrolled]="isScrolled">
+    <img src="assets/horizontal_logo.png" (click)="goToHome()" alt="Indiefruit Logo"/>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" 
+            [class.active]="isMobileMenuOpen"
+            (click)="toggleMobileMenu()"
+            aria-label="Toggle menu">
+        <span></span>
+        <span></span> 
+        <span></span>
+    </button>
+    
+    <ul class="menus" [class.open]="isMobileMenuOpen">
+        <li *ngFor="let item of menus; index as i"
+            [ngClass]="{'active-menu': selectedMenuIndex===i}"
+            class="menu-item"
+            (click)="onMenuClick(i)">
+            <a>{{item.text}}</a>
+        </li>
+    </ul>
+</div>

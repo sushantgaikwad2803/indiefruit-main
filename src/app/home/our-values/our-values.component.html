@@ -1,0 +1,40 @@
+<!-- <h2 id="why-to-choose-us" class="section-title">OUR VALUES</h2>
+<div class="values-container">
+    <app-one-value *ngFor="let value of values" [title]="value.title" [content]="value.content">
+    </app-one-value>
+</div> -->
+
+<!-- Modern Section Header -->
+<div class="section-header">
+    <div class="line"></div>
+    <div class="title-wrapper">
+        <span class="subtitle">What Drives Us</span>
+        <h2 id="why-to-choose-us" class="section-title">OUR VALUES</h2>
+    </div>
+    <div class="line"></div>  
+</div>
+
+<p class="description">The core principles that guide us in delivering excellence to our customers and partners.</p>
+
+<!-- Values Grid -->
+<div class="values-grid">
+    <div *ngFor="let value of values; let i = index" 
+         class="value-card" 
+         [style.border-color]="value.color"
+         [style.--hover-color]="value.color">
+        
+        <!-- Icon -->
+        <div class="icon-wrapper" [style.background]="value.color + '33'">
+            <span class="icon">{{ value.icon }}</span>
+        </div>
+        
+        <!-- Content -->
+        <div class="content-wrapper">
+            <h3 class="value-title" [style.color]="value.color">{{ value.title }}</h3>
+            <p class="value-description">{{ value.content }}</p>
+        </div>
+        
+        <!-- Decorative number -->
+        <span class="value-number">0{{ i + 1 }}</span>
+    </div>
+</div>
