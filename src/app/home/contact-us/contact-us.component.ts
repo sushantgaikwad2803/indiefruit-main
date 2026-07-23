@@ -33,6 +33,13 @@ export class ContactUsComponent {
     message: ''
   };
 
+  ngOnInit(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
   onSubmit() {
 
     emailjs.send(
