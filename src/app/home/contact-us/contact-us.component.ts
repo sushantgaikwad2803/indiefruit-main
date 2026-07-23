@@ -12,6 +12,7 @@
 
 // }
 
+import emailjs from '@emailjs/browser';
 import { FooterComponent } from './../../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
@@ -33,9 +34,37 @@ export class ContactUsComponent {
   };
 
   onSubmit() {
-    console.log('Form submitted:', this.contactData);
-    alert('Thank you for your message! We will get back to you soon.');
-    this.contactData = { email: '', subject: '', message: '' };
+
+    emailjs.send(
+      'service_5vcoydi',     // Your Service ID
+      'template_d3hzttc',    // Your Template ID
+      {
+        email: this.contactData.email,
+        subject: this.contactData.subject,
+        message: this.contactData.message,
+      },
+      'S_RM4sZOTwVgQK-PC'         // Your Public Key
+    ).then(
+      () => {
+  
+        alert("Message Sent Successfully!");
+  
+        this.contactData = {
+          email: '',
+          subject: '',
+          message: ''
+        };
+  
+      },
+      (error) => {
+  
+        console.log(error);
+  
+        alert("Failed to send message.");
+  
+      }
+    );
+  
   }
 }
 
